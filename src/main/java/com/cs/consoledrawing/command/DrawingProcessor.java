@@ -8,12 +8,12 @@ import java.util.Stack;
 /**
  * Not used for now, planning to use it for undo/redo
  */
-public class CommandProcessor {
+public class DrawingProcessor {
     private Canvas canvas;
     private Stack<Canvas> doneStack;
     private Stack<Canvas> undoneStack;
 
-    public CommandProcessor() {
+    public DrawingProcessor() {
         canvas = new Canvas();
         doneStack = new Stack<>();
         undoneStack = new Stack<>();

@@ -13,7 +13,7 @@ public class ConsoleDrawingMain {
 
     public static void main(String[] args) {
         Logger log = LoggerFactory.getLogger(ConsoleDrawingMain.class);
-        CommandProcessor commandProcessor = new CommandProcessor();
+        DrawingProcessor drawingProcessor = new DrawingProcessor();
 
         boolean isExit = false;
         printMenu();
@@ -31,12 +31,13 @@ public class ConsoleDrawingMain {
                 try {
 
                     switch(commandKey){
+                        // control flow command
                         case "U":
-                            commandProcessor.undoLastCmd();
+                            drawingProcessor.undoLastCmd();
                             break;
 
-                        case "R":
-                            commandProcessor.redoLastUndone();
+                        case "RE":
+                            drawingProcessor.redoLastUndone();
                             break;
 
                         case "Q":
@@ -45,11 +46,12 @@ public class ConsoleDrawingMain {
                             continue;
 
                         default:
+                            // drawing commmand
                             Command command = CommandFactory.createCommand(commandKey, inputArgs);
-                            commandProcessor.executeCommand(command);
+                            drawingProcessor.executeCommand(command);
                     }
 
-                    CanvasRenderer.render(commandProcessor.getCanvas());
+                    CanvasRenderer.render(drawingProcessor.getCanvas());
 
                 } catch (InvalidInputException e) {
                     log.error(e.getMessage());
@@ -66,7 +68,7 @@ public class ConsoleDrawingMain {
         System.out.println("*   2) R x1 y1 x2 y2  to create a rectangle *");
         System.out.println("*   3) B x1 y1 color  to refill             *");
         System.out.println("*   4) U              to undo               *");
-        System.out.println("*   5) R              to redo               *");
+        System.out.println("*   5) RE             to redo               *");
         System.out.println("*   4) Q              to Exit               *");
         System.out.println("*                                           *");
         System.out.println("******************************************");
