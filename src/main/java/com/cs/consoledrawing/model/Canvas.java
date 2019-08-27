@@ -29,7 +29,7 @@ public class Canvas {
         this.board = Arrays.stream(other.board).map(r -> r.clone()).toArray(char[][]::new);
     }
 
-    public void setCanvas(Canvas canvas){
+    public void setCanvas(Canvas canvas){ //where's this method used? this one is kind of confusion
         this.board = canvas.board;
         this.width = canvas.width;
         this.height = canvas.height;
