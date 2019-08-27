@@ -9,7 +9,8 @@ public class Canvas {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     private char [][] board;
-    private int width, height;
+    private int width;
+    private int height;
 
     public Canvas() {
         board = new char[0][0];
