@@ -4,6 +4,8 @@ import com.cs.consoledrawing.exception.InvalidInputException;
 
 public class CommandFactory {
 
+    //there is no strict right or wrong... but i wouldn't create one command object per input. 
+    // i would simply create four command objects for the entire application lifecycle.
     public static Command createCommand(String commandKey, String[] args) throws InvalidInputException {
         Command command = null;
 
