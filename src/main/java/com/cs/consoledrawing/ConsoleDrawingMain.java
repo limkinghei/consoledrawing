@@ -15,11 +15,11 @@ public class ConsoleDrawingMain {
         Logger log = LoggerFactory.getLogger(ConsoleDrawingMain.class);
         DrawingProcessor drawingProcessor = new DrawingProcessor();
 
-        boolean isExit = false;
+        boolean exited = false;
         printMenu();
         Scanner console = new Scanner(System.in);
 
-        while(!isExit){
+        while(!exited){
             System.out.print("Enter command: ");
             String userInput = console.nextLine().trim();
 
@@ -42,7 +42,7 @@ public class ConsoleDrawingMain {
 
                         case "Q":
                             System.out.println("Bye !");
-                            isExit = true;
+                            exited = true;
                             continue;
 
                         default:
@@ -54,6 +54,7 @@ public class ConsoleDrawingMain {
                     CanvasRenderer.render(drawingProcessor.getCanvas());
 
                 } catch (InvalidInputException e) {
+                    //do you have to show something to user?
                     log.error(e.getMessage());
                 }
             }
