@@ -6,6 +6,7 @@ import com.cs.consoledrawing.model.Canvas;
 import java.util.Stack;
 
 /**
+ This is not a command... move to a diff package
  * Not used for now, planning to use it for undo/redo
  */
 public class DrawingProcessor {
