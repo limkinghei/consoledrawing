@@ -10,9 +10,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ConsoleDrawingMain {
+    private static final Logger Log = LoggerFactory.getLogger(ConsoleDrawingMain.class);
 
     public static void main(String[] args) {
-        Logger log = LoggerFactory.getLogger(ConsoleDrawingMain.class);
         DrawingProcessor drawingProcessor = new DrawingProcessor();
 
         boolean exited = false;
@@ -21,6 +21,7 @@ public class ConsoleDrawingMain {
 
         while(!exited){
             System.out.print("Enter command: ");
+            //break down this method... easiest way would be to move codes insisde this while loop out
             String userInput = console.nextLine().trim();
 
             if(!userInput.equals("")){
@@ -51,7 +52,7 @@ public class ConsoleDrawingMain {
                             drawingProcessor.executeCommand(command);
                     }
 
-                    CanvasRenderer.render(drawingProcessor.getCanvas());
+                    CanvasRenderer.render(drawingProcessor.getCanvas());//better not static method
 
                 } catch (InvalidInputException e) {
                     //do you have to show something to user?
