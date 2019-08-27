@@ -11,7 +11,7 @@ public class Canvas {
     private char [][] board;
     private int width, height;
 
-    public Canvas() {
+    public Canvas() { //better get rid fo this method.. it doesn't make much sense to create a board with zero size
         board = new char[0][0];
     }
 
